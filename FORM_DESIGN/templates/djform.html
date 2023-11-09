@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Django form</title>
+    </title>
+</head>
+<body> <br>
+    <br>
+    <table>
+    <form method="post" action="{% url 'djform/' %}">
+        {% csrf_token %}
+        <div class="form-floating">
+            <input class="form-control" id="Name" name="Name" type="text" placeholder="Enter your name here..." data-sb-validations="required" />
+            <label for="name">Name</label>
+            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+        </div>
+        <div class="form-floating">
+            <input class="form-control" id="RollNo" name="RollNo" type="number" placeholder="Enter your roll No here" data-sb-validations="required" />
+            <label for="rollno">RollNo</label>
+            <div class="invalid-feedback" data-sb-feedback="name:required">A RollNo is required.</div>
+        </div>
+
+        <div class="form-floating">
+            <input class="form-control" id="percentage" name="percentage" type="number" placeholder="Enter your percentage..." data-sb-validations="required" />
+            <label for="percentage">percentage</label>
+            <div class="invalid-feedback" data-sb-feedback="name:required">A percentage is required.</div>
+        </div>
+
+        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+        <!-- Submit Button-->
+        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+    </form>
+    
+    </table>
+
+
+</body>
+</html>

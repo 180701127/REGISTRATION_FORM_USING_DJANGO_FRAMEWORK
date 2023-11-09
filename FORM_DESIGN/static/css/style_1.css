@@ -1,0 +1,58 @@
+#count{
+    display: inline-block;
+    position: relative;
+    margin: 4%;
+    margin-bottom: 2%;
+    color:red;
+    font-size: 18px;
+    text-indent: 40px;
+    font-weight: bolder;
+}
+#see{
+    display: inline-block;
+    color:blue;
+    margin:auto;
+    float: right;
+    margin-top: 10px;
+    margin-right: 40px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+#hide{
+    display: inline-block;
+    color:blue;
+    margin:auto;
+    float: right;
+    margin-top: 10px;
+    margin-right: 40px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+input[id='password']{
+    padding: 10px;
+    border: none;
+    width: 100%;
+    outline: none;
+    border-bottom: 5px solid #2a0845;
+    display: block;
+    position: relative;
+    font-size: 27px;
+    text-align: center;
+    top: 50px;
+    margin-top: -20px;
+    margin-left: 35px;
+    margin-bottom: 40px;
+    user-select: auto;
+    font-family:'Times New Roman', Times, serif;
+    transition-duration: 600ms;
+
+}
+
+
+i{
+    font-size: 23px;
+    transition-duration: 600ms;
+
+}
+

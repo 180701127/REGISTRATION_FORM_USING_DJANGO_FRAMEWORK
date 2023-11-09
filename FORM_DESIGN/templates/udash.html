@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div>
+        <a href="{% url 'cpost/' %}" target="_blank" <button class="btn btn-success">Create Post</button></a>
+        <br>
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">title</th>
+            <th scope="col">sdesc</th>
+            <th scope="col">detail</th>
+            <th scope="col">category</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">gender</th>
+            <th scope="col">country_code</th>
+            <th scope="col">Mobile_No</th>
+            <th scope="col">Emailid</th>
+            <th scope="col">password</th>
+            <th scope="col">cpassword</th>
+            <th scope="col">isactive</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+                {% for x in data %}
+                <tr>
+                        <th scope="row">{{x.id}}</th>
+                        <td>{{x.title}}</td>
+                        <td>{{x.sdesc}}</td>
+                        <td>{{x.detail}}</td>
+                        {% if x.category == 1 %}
+                        <td>Technical</td>
+                        {% elif x.category == 2 %}
+                        <td>Food</td>
+                        {% else %}
+                        <td>Travel</td>
+                        {% endif %}
+                        <th>{{x.FirstName}}</th>
+                        <td>{{x.LastName}}</td>
+                        <td>{{x.gender}}</td>
+                        <td>{{x.country_code}}</td>
+                        <td>{{x.Mobile_No}}</td>
+                        <td>{{x.Emailid}}</td>
+                        <td>{{x.password}}</td>
+                        <td>{{x.cpassword}}</td>
+                        {% if x.isactive == 1 %}
+                        <td>yes</td>
+                        {% else %}
+                        <td>No</td>
+                        {% endif %}
+                        <td><a href="/edit/{{x.id}}"><button class="btn btn-warning">edit<button></a></td>
+                        <td><a href="/delete/{{x.id}}"><button class="btn btn-danger">delete<button></a></td> 
+                                  
+
+
+                        
+
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+</div>
+{% endblock 'main' %}
+
+
+                        
+                        
+
+                        
+ 
+        

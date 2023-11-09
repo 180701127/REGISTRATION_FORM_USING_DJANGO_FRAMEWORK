@@ -1,0 +1,19 @@
+input[id='cpassword']{
+    padding: 10px;
+    border: none;
+    width: 80%;
+    outline: none;
+    border-bottom: 5px solid #2a0845;
+    display: block;
+    position: relative;
+    font-size: 27px;
+    text-align: center;
+    top: 50px;
+    margin-top: -20px;
+    margin-left: 35px;
+    margin-bottom: 40px;
+    user-select: auto;
+    font-family:'Times New Roman', Times, serif;
+    transition-duration: 600ms;
+
+}

@@ -1,0 +1,15 @@
+<p>This is about my main content </p>
+
+        <p> Data received </p>
+        
+
+        {% for x in data %}
+        <table border="1">
+                <tr>
+                        <td><p>Elements: {{x.title}}</p></td>
+                        <td><p>Elements: {{x.sdesc}}</p></td>
+                        <td><p>Elements: {{x.detail}}</p></td>
+                        <td><p>Elements: {{x.category}}</p></td>
+                        <td><p>Elements: {{x.isactive}}</p></td>
+                </tr>
+        </table>

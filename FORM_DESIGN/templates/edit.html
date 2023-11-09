@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block 'main' %}
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+                <div class="my-5">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form onsubmit="return verifyPassword()" id="contactForm" method="POST" action="{{data.id}}" data-sb-form-api-token="API_TOKEN">
+                        {% csrf_token %}
+                        {% for x in data %}
+                        <div class="form-floating">
+                            <input class="form-control" id="ptitle" name="ptitle" type="text" value="{{x.title}}" placeholder="Enter your post title..." data-sb-validations="required" />
+                            <label for="name">Post_Title</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="sdesc" name="sdesc" type="text" value="{{x.sdesc}}" placeholder="Enter your small description..." data-sb-validations="required,email" />
+                            <label for="sdesc">smallDescription</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="det" name="det" type="tel" value="{{x.Details}}" placeholder="Enter your blog post here..." data-sb-validations="required" />
+                            <label for="det">Details</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                            <label for="message">message</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <select class="form-select" name="cat" aria-label="Default select example">
+                                <option selected>Select Category</option>
+                                <option value="1">Technical</option>
+                                <option value="2">food</option>
+                                <option value="3">Travel</option>
+                            </select>
+                        
+
+                        <div class="form-floating">
+                            <input class="form-control" id="FirstName" name="FirstName" type="text" placeholder="Enter your first name..." data-sb-validations="required" />
+                            <label for="firstname">FirstName</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="LastName" name="LastName" type="text" placeholder="Enter your last name..." data-sb-validations="required,email" />
+                            <label for="lastname">LastName</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <div class="form-floating">
+                            <select class="form-select" name="gender" aria-label="Default select example">
+                                <option selected>Select gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="country_code" name="country_code" value="+91" type="tel" readonly placeholder="Enter your countrycode here..." data-sb-validations="required" />
+                            <label for="countrycode">CountryCode</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A country code is required is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="Mobile_No" name="Mobile_No" maxlength="10" type="text" placeholder="Enter your mobile no here..." data-sb-validations="required" />
+                            <label for="mobileno">Mobile_No</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div>
+
+                        
+
+                        <div class="form-floating">
+                            <input class="form-control" id="Emailid" name="Emailid" type="email" placeholder="Enter your email here..." data-sb-validations="required" />
+                            <label for="email">Email</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A email is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" onclick="verifyPassword()" id="password" name="password" type="password" value="password" maxlength="8" placeholder="Enter your password here..." data-sb-validations="required" />
+                            <div id="set">
+                                <div id="count">length: 0</div>
+                                <i id="see" onclick="see()" class="far fa-eye"></i>
+                            </div>
+                            <label for="password">Password</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" onclick="verifyPassword()" id="cpassword" name="cpassword" type="password" value="cpassword" maxlength="8" placeholder="Enter your conform password here..." data-sb-validations="required" />
+                            <div id="set">
+                                <div id="count">length: 0</div>
+                                <i id="see" onclick="hide()" class="far fa-eye"></i>
+                            </div>
+                            <label for="conformpassword">ConformPassword</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+                        </div>
+                        
+                        <br />
+                        {% if x.isactive == 1 %}
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="1" name="pactive" id="flexRadioDefault1" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Active
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" value="2" name="pactive" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Inactive
+                            </label>
+                          </div>
+                        {% else %}
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="radio" value="1" name="pactive" id="flexRadioDefault1" checked>
+                             <label class="form-check-label" for="flexRadioDefault1">
+                               Active
+                             </label>
+                           </div>
+                           <div class="form-check">
+                             <input class="form-check-input" type="radio" value="2" name="pactive" id="flexRadioDefault2" >
+                             <label class="form-check-label" for="flexRadioDefault2">
+                               Inactive
+                             </label>
+                           </div>
+                           {% endif %}
+
+                        <br> 
+                        
+
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                To activate this form, sign up at
+                                <br />
+                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock 'main' %}
